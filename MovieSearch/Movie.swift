@@ -8,42 +8,38 @@
 
 import Foundation
 
-class Movie{
-    let poster: String = ""
-    let title: String = ""
-    let type: String = ""
-    let year: String = ""
-    let imdbID: String = ""
-    
-    
-//    init(poster: String, title: String, type: String, year: String, imdbID: String){
-//        self.poster = poster
-//        self.title = title
-//        self.type = type
-//        self.year = year
-//        self.imdbID = imdbID
 
+class Movie{
     
     
-    enum MovieInfo: String{
-    case poster = "Poster"
-    case title = "Title"
-    case type = "Type"
-    case year = "Year"
-    case imdbID = "imdbID"
+    var title: String = ""
+    var year: String = ""
+    var poster: String = ""
+    var type: String = ""
+    var imdbID: String = ""
+    
+    
+    /*init(poster: String, title: String, type: String, year: String, imdbID: String){
+        self.poster = poster
+        self.title = title
+        self.type = type
+        self.year = year
+        self.imdbID = imdbID
+
+    }*/
+    
+    init(dictionary:[String:String]) {
+        for (key,val) in dictionary {
+            switch key {
+                case "Title": self.title = val
+                case "Year": self.year = val
+                case "imdbID": self.imdbID = val
+                case "Type": self.type = val
+                case "Poster": self.poster = val
+                default: break
+            }
+        } //for
     }
-    
-  /*  func updateProperty(property: String, passedValue: String){
-        switch propery{
-            case "Poster":
-            self.poster = passedValue
-        default:
-            self.poster = "Something else"
-        }
-        
-        
-        
-    } */
     
     
 }
